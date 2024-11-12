@@ -1,0 +1,45 @@
+function verificarRespostas() {
+    const feedback = document.getElementById("feedback");
+    feedback.innerHTML = "";
+
+    verificarPreenchimento();
+    verificarMultiplaEscolha();
+    verificarInterpretacao();
+}
+
+function verificarPreenchimento() {
+    const respostasCorretas = ["like", "is", "have"];
+    const selecoes = document.querySelectorAll("#exercicios select");
+
+    selecoes.forEach((selecao, index) => {
+        const resultado = selecao.value === respostasCorretas[index]
+            ? `Questão ${index + 1}: Correto!`
+            : `Questão ${index + 1}: Incorreto. A resposta certa é "${respostasCorretas[index]}".`;
+        adicionarFeedback(resultado);
+    });
+}
+
+function verificarMultiplaEscolha() {
+    const respostaCorreta = "Paris";
+    const respostaSelecionada = document.querySelector('input[name="q1"]:checked');
+
+    const resultado = respostaSelecionada && respostaSelecionada.value === respostaCorreta
+        ? "Múltipla escolha: Correto!"
+        : `Múltipla escolha: Incorreto. A resposta certa é "${respostaCorreta}".`;
+    adicionarFeedback(resultado);
+}
+
+function verificarInterpretacao() {
+    const respostaCorreta = "red";
+    const resposta = document.getElementById("resposta-interpretacao").value.trim().toLowerCase();
+
+    const resultado = resposta === respostaCorreta
+        ? "Interpretação de texto: Correto!"
+        : `Interpretação de texto: Incorreto. A resposta certa é "${respostaCorreta}".`;
+    adicionarFeedback(resultado);
+}
+
+function adicionarFeedback(mensagem) {
+    const feedback = document.getElementById("feedback");
+    feedback.innerHTML += `${mensagem}<br>`;
+}
