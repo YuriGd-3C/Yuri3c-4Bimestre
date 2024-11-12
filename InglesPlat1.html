@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inglês Básico</title>
+    <style>
+        /* Estilos básicos para o corpo */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        /* Estilo do cabeçalho */
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        /* Container principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Estilos de seções */
+        section {
+            margin-bottom: 20px;
+        }
+        
+        h2 {
+            color: #333;
+        }
+
+        /* Estilo do rodapé */
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+        }
+    </style>
+    <script>
+        function verificarRespostas() {
+            // Seleciona as respostas corretas
+            const respostasCorretas = ["like", "is", "have"];
+            const selecoes = document.querySelectorAll("select");
+            let resultado = "";
+
+            selecoes.forEach((selecao, index) => {
+                if (selecao.value === respostasCorretas[index]) {
+                    resultado += `Questão ${index + 1}: Correto!<br>`;
+                } else {
+                    resultado += `Questão ${index + 1}: Incorreto. A resposta certa é "${respostasCorretas[index]}".<br>`;
+                }
+            });
+
+            // Exibe o feedback
+            document.getElementById("feedback").innerHTML = resultado;
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header>
+        <h1>Aprenda Inglês Básico</h1>
+        <p>Introdução ao vocabulário e gramática para iniciantes</p>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <div class="container">
+        <!-- Seção de vocabulário -->
+        <section id="vocabulario">
+            <h2>Vocabulário Básico</h2>
+            <p>Aqui estão algumas palavras básicas para começar:</p>
+            <ul>
+                <li>House (casa)</li>
+                <li>Dog (cachorro)</li>
+                <li>Book (livro)</li>
+                <li>Water (água)</li>
+                <li>Food (comida)</li>
+            </ul>
+        </section>
+
+        <!-- Seção de gramática -->
+        <section id="gramatica">
+            <h2>Gramática Básica</h2>
+            <p>Introdução aos tempos verbais e estrutura de frases:</p>
+            <p><strong>Frase básica:</strong> Sujeito + Verbo + Objeto</p>
+            <p><strong>Exemplo:</strong> I eat food (Eu como comida)</p>
+        </section>
+
+        <!-- Seção de exercícios -->
+        <section id="exercicios">
+            <h2>Exercícios</h2>
+            <p>Tente completar as frases abaixo:</p>
+            <ul>
+                <li>
+                    I
+                    <select>
+                        <option value="">--Selecione--</option>
+                        <option value="like">like</option>
+                        <option value="dislike">dislike</option>
+                    </select>
+                    coffee.
+                </li>
+                <li>
+                    She
+                    <select>
+                        <option value="">--Selecione--</option>
+                        <option value="is">is</option>
+                        <option value="are">are</option>
+                    </select>
+                    a student.
+                </li>
+                <li>
+                    They
+                    <select>
+                        <option value="">--Selecione--</option>
+                        <option value="have">have</option>
+                        <option value="has">has</option>
+                    </select>
+                    a dog.
+                </li>
+            </ul>
+            <button onclick="verificarRespostas()">Verificar Respostas</button>
+            <p id="feedback"></p>
+        </section>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2024 Aprenda Inglês Básico. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
+
